@@ -1,0 +1,78 @@
+:icons: font
+:sectnums:
+:toc: left
+= loadbank
+
+[%hardbreaks]
+Create Dataset of bank.csv
+X is DataFrame.
+y is Series.
+String variables to category.
+If for regressor, target variable is balance.
+
+== Install
+
+pip install git+https://github.com/kanosuke/loadbank
+
+
+== Raw Data
+
+[%hardbreaks]
+Download from:
+https://archive.ics.uci.edu/ml/datasets/bank+marketing[Bank Marketing Data Set]
+
+== Functions
+
+* load_bank_classifier
+* load_bank_regressor
+
+== Example
+
+=== For classifier
+
+.Code:
+----
+# %%
+from loadbank import load_bank_classifier
+Xclf, yclf = load_bank_classifier()
+Xclf.head().to_csv("output/Xclf.csv")
+yclf.to_frame('y').head().to_csv("output/yclf.csv")
+# %%
+----
+
+.X : Xclf.csv
+[format="csv", options="header"]
+|===
+include::output/Xclf.csv[]
+|===
+
+.y : yclf.csv
+[format="csv", options="header"]
+|===
+include::output/yclf.csv[]
+|===
+
+=== For regressor
+
+.Code:
+----
+# %%
+from loadbank import load_bank_regressor
+Xreg, yreg = load_bank_regressor()
+Xreg.head().to_csv("output/Xreg.csv")
+yreg.to_frame('y').head().to_csv("output/yreg.csv")
+# %%
+----
+
+.X : Xreg.csv
+[format="csv", options="header"]
+|===
+include::output/Xreg.csv[]
+|===
+
+.y : yreg.csv
+[format="csv", options="header"]
+|===
+include::output/yreg.csv[]
+|===
+
